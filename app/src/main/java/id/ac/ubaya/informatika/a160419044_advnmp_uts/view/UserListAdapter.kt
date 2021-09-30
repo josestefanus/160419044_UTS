@@ -1,0 +1,41 @@
+package id.ac.ubaya.informatika.a160419044_advnmp_uts.view
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.recyclerview.widget.RecyclerView
+import id.ac.ubaya.informatika.a160419044_advnmp_uts.R
+import id.ac.ubaya.informatika.a160419044_advnmp_uts.model.User
+import kotlinx.android.synthetic.main.user_list_item.view.*
+
+class UserListAdapter(val userList:ArrayList<User>):RecyclerView.Adapter<UserListAdapter.UserViewHolder>() {
+    class UserViewHolder(val view:View):RecyclerView.ViewHolder(view)
+
+    fun updateUserList(newUserList:List<User>) {
+        userList.clear()
+        userList.addAll(newUserList)
+        notifyDataSetChanged()
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val v = inflater.inflate(R.layout.user_list_item, parent, false)
+
+        return UserViewHolder(v)
+    }
+
+    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+        holder.view.txtId.text = userList[position].id
+        holder.view.txtName.text = userList[position].name
+
+        holder.view.btnDetail.setOnClickListener {
+            val action = UserListFragmentDirections.actionUserDetail()
+            Navigation.findNavController(it).navigate(action)
+        }
+    }
+
+    override fun getItemCount(): Int {
+        return userList.size
+    }
+}
