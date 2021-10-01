@@ -36,6 +36,14 @@ class UserListFragment : Fragment() {
         recView.layoutManager = LinearLayoutManager(context)
         recView.adapter = userListAdapter
 
+        refreshLayout.setOnRefreshListener {
+            recView.visibility = View.GONE
+            txtError.visibility = View.GONE
+            progressLoad.visibility = View.VISIBLE
+            viewModel.refresh()
+            refreshLayout.isRefreshing = false
+        }
+
         observeViewModel()
     }
 
@@ -52,7 +60,7 @@ class UserListFragment : Fragment() {
             }
         })
 
-        viewModel.loadingDoneLD.observe(viewLifecycleOwner, Observer {
+        viewModel.loadingLD.observe(viewLifecycleOwner, Observer {
             if(it == true) {
                 progressLoad.visibility = View.VISIBLE
                 recView.visibility = View.GONE

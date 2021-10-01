@@ -33,12 +33,21 @@ class UserDetailFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         viewModel.refresh()
+
+        txtId.setText(viewModel.userLD.value?.id)
+        txtName.setText(viewModel.userLD.value?.name)
+        txtBod.setText(viewModel.userLD.value?.bod)
+        txtPhone.setText(viewModel.userLD.value?.phone)
+
         observeViewModel()
     }
 
     fun observeViewModel() {
         viewModel.userLD.observe(viewLifecycleOwner, Observer {
-            userDetailAdapter.updateUserList(it)
+            txtId.setText(viewModel.userLD.value?.id)
+            txtName.setText(viewModel.userLD.value?.name)
+            txtBod.setText(viewModel.userLD.value?.bod)
+            txtPhone.setText(viewModel.userLD.value?.phone)
         })
     }
 }
