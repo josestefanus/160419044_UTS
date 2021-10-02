@@ -17,5 +17,9 @@
         android:id="@+id/userDetailFragment"
         android:name="id.ac.ubaya.informatika.a160419044_advnmp_uts.view.UserDetailFragment"
         android:label="fragment_user_detail"
-        tools:layout="@layout/fragment_user_detail" />
+        tools:layout="@layout/fragment_user_detail" >
+        <argument
+            android:name="userId"
+            app:argType="string" />
+    </fragment>
 </navigation>

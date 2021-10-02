@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.ubaya.informatika.a160419044_advnmp_uts.R
+import id.ac.ubaya.informatika.a160419044_advnmp_uts.util.loadImage
 import id.ac.ubaya.informatika.a160419044_advnmp_uts.viewmodel.DetailViewModel
 import id.ac.ubaya.informatika.a160419044_advnmp_uts.viewmodel.ListViewModel
 import kotlinx.android.synthetic.main.fragment_user_detail.*
@@ -31,15 +32,16 @@ class UserDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
-        viewModel.refresh()
+        //viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
+        //viewModel.refresh()
+        //observeViewModel()
+        arguments?.let {
+            var userId = UserDetailFragmentArgs.fromBundle(requireArguments()).userId
+            viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
+            viewModel.refresh(userId)
+            observeViewModel()
+        }
 
-        txtId.setText(viewModel.userLD.value?.id)
-        txtName.setText(viewModel.userLD.value?.name)
-        txtBod.setText(viewModel.userLD.value?.bod)
-        txtPhone.setText(viewModel.userLD.value?.phone)
-
-        observeViewModel()
     }
 
     fun observeViewModel() {
@@ -48,6 +50,7 @@ class UserDetailFragment : Fragment() {
             txtName.setText(viewModel.userLD.value?.name)
             txtBod.setText(viewModel.userLD.value?.bod)
             txtPhone.setText(viewModel.userLD.value?.phone)
+            imageView2.loadImage(viewModel.userLD.value?.photoUrl.toString(), progressBarDetail)
         })
     }
 }

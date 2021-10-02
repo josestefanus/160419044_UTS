@@ -7,6 +7,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import id.ac.ubaya.informatika.a160419044_advnmp_uts.R
 import id.ac.ubaya.informatika.a160419044_advnmp_uts.model.User
+import id.ac.ubaya.informatika.a160419044_advnmp_uts.util.loadImage
 import kotlinx.android.synthetic.main.user_list_item.view.*
 
 class UserListAdapter(val userList:ArrayList<User>):RecyclerView.Adapter<UserListAdapter.UserViewHolder>() {
@@ -28,9 +29,12 @@ class UserListAdapter(val userList:ArrayList<User>):RecyclerView.Adapter<UserLis
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         holder.view.txtId.text = userList[position].id
         holder.view.txtName.text = userList[position].name
+        holder.view.imageView.loadImage(userList[position].photoUrl.toString(), holder.view.progressBar)
 
         holder.view.btnDetail.setOnClickListener {
-            val action = UserListFragmentDirections.actionUserDetail()
+            //val action = UserListFragmentDirections.actionUserDetail()
+            var userId = userList[position].id.toString()
+            val action = UserListFragmentDirections.actionUserDetail(userId)
             Navigation.findNavController(it).navigate(action)
         }
     }
