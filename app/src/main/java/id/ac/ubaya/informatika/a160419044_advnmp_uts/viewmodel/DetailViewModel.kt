@@ -22,7 +22,7 @@ class DetailViewModel(application: Application):AndroidViewModel(application) {
     fun refresh(userId: String)
     {
         queue = Volley.newRequestQueue(getApplication())
-        val url = "http://adv.jitusolution.com/student.php?id=$userId"
+        val url = "https://raw.githubusercontent.com/josestefanus/user_data/main/user$userId.php"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,

@@ -26,7 +26,7 @@ class ListViewModel(application: Application):AndroidViewModel(application) {
         loadingLD.value = true
 
         queue = Volley.newRequestQueue(getApplication())
-        var url = "http://adv.jitusolution.com/student.php"
+        var url = "https://raw.githubusercontent.com/josestefanus/user_data/main/user.php"
 
         val stringRequest = StringRequest(
             Request.Method.GET, url,
