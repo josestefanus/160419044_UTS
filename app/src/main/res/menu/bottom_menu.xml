@@ -9,7 +9,7 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/itemInformation"
-        android:icon="@drawable/ic_baseline_library_books_24"
+        android:icon="@drawable/ic_baseline_format_list_bulleted_24"
         android:title="Information"
         app:showAsAction="always" />
     <item
