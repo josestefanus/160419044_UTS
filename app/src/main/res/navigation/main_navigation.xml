@@ -46,4 +46,19 @@
         android:name="id.ac.ubaya.informatika.a160419044_advnmp_uts.view.OptionFragment"
         android:label="fragment_option"
         tools:layout="@layout/fragment_option" />
+    <fragment
+        android:id="@+id/itemCertificate"
+        android:name="id.ac.ubaya.informatika.a160419044_advnmp_uts.view.CertificateFragment"
+        android:label="Certificate"
+        tools:layout="@layout/fragment_certificate" />
+    <fragment
+        android:id="@+id/itemSearch"
+        android:name="id.ac.ubaya.informatika.a160419044_advnmp_uts.view.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/itemTips"
+        android:name="id.ac.ubaya.informatika.a160419044_advnmp_uts.view.TipsFragment"
+        android:label="Tips"
+        tools:layout="@layout/fragment_tips" />
 </navigation>
