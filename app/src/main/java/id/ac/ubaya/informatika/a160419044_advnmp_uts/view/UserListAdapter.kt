@@ -1,5 +1,6 @@
 package id.ac.ubaya.informatika.a160419044_advnmp_uts.view
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,7 +30,18 @@ class UserListAdapter(val userList:ArrayList<User>):RecyclerView.Adapter<UserLis
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         holder.view.txtId.text = userList[position].id
         holder.view.txtName.text = userList[position].name
-        holder.view.txtStatusV.text = userList[position].status
+        //holder.view.txtStatusV.text = userList[position].status
+
+        if(userList[position].status.equals("VACCINATED")) {
+            holder.view.txtStatusV.setText("VACCINATED")
+            holder.view.txtStatusV.setTextColor(Color.GREEN)
+        } else {
+            holder.view.txtStatusV.setText("NOT VACCINATED")
+            holder.view.txtStatusV.setTextColor(Color.RED)
+        }
+
+
+
         holder.view.imageView.loadImage(userList[position].photoUrl.toString(), holder.view.progressBar)
 
         holder.view.btnDetail.setOnClickListener {

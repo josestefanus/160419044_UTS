@@ -1,5 +1,6 @@
 package id.ac.ubaya.informatika.a160419044_advnmp_uts.view
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -16,6 +17,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_user_detail.*
+import kotlinx.android.synthetic.main.user_list_item.view.*
 import java.util.concurrent.TimeUnit
 
 
@@ -59,7 +61,16 @@ class UserDetailFragment : Fragment() {
             txtName.setText(viewModel.userLD.value?.name)
             txtBod.setText(viewModel.userLD.value?.bod)
             txtPhone.setText(viewModel.userLD.value?.phone)
-            txtStatusV.setText(viewModel.userLD.value?.status)
+
+            if(viewModel.userLD.value?.status.equals("VACCINATED")) {
+                txtStatusV.setText("VACCINATED")
+                txtStatusV.setTextColor(Color.GREEN)
+            } else {
+                txtStatusV.setText("NOT VACCINATED")
+                txtStatusV.setTextColor(Color.RED)
+            }
+
+            //txtStatusV.setText(viewModel.userLD.value?.status)
             imageView2.loadImage(viewModel.userLD.value?.photoUrl.toString(), progressBarDetail)
 
             var user = it
