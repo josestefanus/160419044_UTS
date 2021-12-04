@@ -32,4 +32,9 @@
         android:icon="@drawable/ic_baseline_favorite_24"
         android:title="Tips"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/itemTodo"
+        android:icon="@drawable/ic_baseline_menu_book_24"
+        android:title="Todo"
+        app:showAsAction="always" />
 </menu>
