@@ -55,7 +55,7 @@ fun ImageView.loadImage(url:String, progressBar:ProgressBar) {
 
 @BindingAdapter("android:imageUrl", "android:progressBar")
 fun loadPhotoUrl(v:ImageView, url:String, pb:ProgressBar) {
-    v.loadImage(url, pb)
+    if(url != "") v.loadImage(url, pb)
 }
 
 val MIGRATION_1_2 = object: Migration(1,2) {
