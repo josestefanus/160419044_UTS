@@ -7,6 +7,7 @@ import android.os.Build
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
+import androidx.databinding.BindingAdapter
 import androidx.room.Room
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
@@ -50,6 +51,11 @@ fun ImageView.loadImage(url:String, progressBar:ProgressBar) {
                     override fun onError(e: Exception?) {
                     }
             })
+}
+
+@BindingAdapter("android:imageUrl", "android:progressBar")
+fun loadPhotoUrl(v:ImageView, url:String, pb:ProgressBar) {
+    v.loadImage(url, pb)
 }
 
 val MIGRATION_1_2 = object: Migration(1,2) {
