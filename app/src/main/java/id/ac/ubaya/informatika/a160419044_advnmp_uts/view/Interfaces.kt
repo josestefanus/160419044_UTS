@@ -32,3 +32,15 @@ interface ButtonBackClickListener {
 interface ButtonNotificationClickListener{
     fun onButtonNotificationClick(v: View)
 }
+
+interface ButtonAddTodoClickListener{
+    fun onButtonAddTodo(v:View)
+}
+
+interface DateClickListener{
+    fun onDateClick(v:View)
+}
+
+interface TimeClickListener{
+    fun onTimeClick(v:View)
+}
