@@ -1,5 +1,7 @@
 package id.ac.ubaya.informatika.a160419044_advnmp_uts.view
 
+import android.content.Context
+import android.hardware.SensorManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +11,7 @@ import id.ac.ubaya.informatika.a160419044_advnmp_uts.R
 
 
 class CertificateFragment : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
