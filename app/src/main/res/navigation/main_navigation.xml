@@ -64,8 +64,8 @@
     <fragment
         android:id="@+id/itemTodo"
         android:name="id.ac.ubaya.informatika.a160419044_advnmp_uts.view.TodoListFragment"
-        android:label="fragment_todo_list"
-        tools:layout="@layout/fragment_todo_list" >
+        android:label="Todo List"
+        tools:layout="@layout/fragment_todo_list">
         <action
             android:id="@+id/actionCreateTodo"
             app:destination="@id/createTodoFragment"
@@ -78,12 +78,12 @@
     <fragment
         android:id="@+id/createTodoFragment"
         android:name="id.ac.ubaya.informatika.a160419044_advnmp_uts.view.CreateTodoFragment"
-        android:label="fragment_create_todo"
+        android:label="Create Todo"
         tools:layout="@layout/fragment_create_todo" />
     <fragment
         android:id="@+id/editTodoFragment"
         android:name="id.ac.ubaya.informatika.a160419044_advnmp_uts.view.EditTodoFragment"
-        android:label="EditTodoFragment" >
+        android:label="Edit Todo">
         <argument
             android:name="uuid"
             app:argType="integer" />
